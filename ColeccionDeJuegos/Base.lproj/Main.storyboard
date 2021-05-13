@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" id="pep-S9-xy0">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aAR-eG-81o">
                             <connections>
-                                <segue destination="1jj-lm-fEh" kind="show" id="8eM-Sx-9lP"/>
+                                <segue destination="1jj-lm-fEh" kind="show" identifier="juegoSegue" id="8eM-Sx-9lP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -64,26 +64,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibi-9j-4i4">
-                                <rect key="frame" x="172" y="367" width="70" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibi-9j-4i4">
+                                <rect key="frame" x="126" y="361" width="163" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Agregar"/>
                                 <connections>
                                     <action selector="agregarTapeed:" destination="1jj-lm-fEh" eventType="touchUpInside" id="KhU-LU-iZx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcb-DK-yFk">
+                                <rect key="frame" x="173" y="420" width="69" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Eliminar">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="eliminarTapped:" destination="1jj-lm-fEh" eventType="touchUpInside" id="rJa-dF-1C7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="t5g-iQ-8ZG" firstAttribute="trailing" secondItem="Ibi-9j-4i4" secondAttribute="trailing" constant="172" id="5Q7-5O-7Ri"/>
-                            <constraint firstItem="Ibi-9j-4i4" firstAttribute="leading" secondItem="t5g-iQ-8ZG" secondAttribute="leading" constant="172" id="76k-UX-QwR"/>
                             <constraint firstItem="RIQ-hW-jN9" firstAttribute="leading" secondItem="t5g-iQ-8ZG" secondAttribute="leading" constant="67" id="Kex-fg-DgS"/>
                             <constraint firstItem="RIQ-hW-jN9" firstAttribute="top" secondItem="t5g-iQ-8ZG" secondAttribute="top" constant="32" id="Kf1-sT-3aw"/>
-                            <constraint firstItem="Ibi-9j-4i4" firstAttribute="centerX" secondItem="31u-dF-ckI" secondAttribute="centerX" id="fkl-MM-xbl"/>
                             <constraint firstItem="t5g-iQ-8ZG" firstAttribute="trailing" secondItem="RIQ-hW-jN9" secondAttribute="trailing" constant="67" id="hsc-BI-Auc"/>
                             <constraint firstItem="Y24-Iv-rNT" firstAttribute="leading" secondItem="t5g-iQ-8ZG" secondAttribute="leading" constant="67" id="jkQ-2N-hRV"/>
-                            <constraint firstItem="t5g-iQ-8ZG" firstAttribute="trailing" secondItem="Ibi-9j-4i4" secondAttribute="trailing" constant="172" id="mV0-Fv-HDS"/>
-                            <constraint firstItem="Ibi-9j-4i4" firstAttribute="top" secondItem="Y24-Iv-rNT" secondAttribute="bottom" constant="29" id="t3q-dM-f5b"/>
                             <constraint firstItem="t5g-iQ-8ZG" firstAttribute="trailing" secondItem="Y24-Iv-rNT" secondAttribute="trailing" constant="67" id="vag-Bt-kbn"/>
                             <constraint firstItem="Y24-Iv-rNT" firstAttribute="top" secondItem="RIQ-hW-jN9" secondAttribute="bottom" constant="34" id="zGV-84-2Ij"/>
                         </constraints>
@@ -105,12 +112,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="JuegoImageView" destination="RIQ-hW-jN9" id="now-2i-cbV"/>
+                        <outlet property="agregarActualizarBoton" destination="Ibi-9j-4i4" id="eCf-3J-jog"/>
+                        <outlet property="eliminarBoton" destination="Bcb-DK-yFk" id="zIT-sc-E8b"/>
                         <outlet property="tituloTextField" destination="Y24-Iv-rNT" id="5uU-jJ-Gc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K33-mx-aIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="100"/>
+            <point key="canvasLocation" x="2456.521739130435" y="99.776785714285708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4vD-Ik-ao1">
