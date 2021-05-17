@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        title = "Listado de Imágenes"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let juego = juegos[indexPath.row]
         performSegue(withIdentifier: "juegoSegue", sender: juego)
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        juegos.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    }
+    
+    
+    @IBAction func deleteCell() {
+        if tableView.isEditing {
+            tableView.isEditing = false
+        } else {
+            tableView.isEditing = true
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(juegos.remove(at: indexPath.row))
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            navigationController?.popViewController(animated: true)
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
